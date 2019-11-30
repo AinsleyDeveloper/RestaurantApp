@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="RestaurantApp.TableSelection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RestaurantApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="1000" Width="1000">
+
+
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="280"/>
+            <ColumnDefinition Width="357*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Border Background="#2f5cb6" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+        <Border Grid.Column ="0" Background="#1f3d7a" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Height ="auto"/>
+        <Border Grid.Column="1" Grid.ColumnSpan="2" Background="#152951" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>-->
+
+        <StackPanel HorizontalAlignment="Center" Margin="0,10,0,0" Name="stkPanelMenue" VerticalAlignment="Stretch">
+            <Button Content="Reservations" Name="btnReservations" Click="BtnReservations_Click" HorizontalAlignment="Center" Height="80" Margin="0,20,0,30" VerticalAlignment="Center" Width="218" FontSize="20"/>
+            <Button Content="Logout" Name="btnLogout" Click="BtnLogout_Click" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Width="218" Height="80" FontSize="20"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Name="stkPanelContent" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"></StackPanel>
+    </Grid>
+
+</Page>

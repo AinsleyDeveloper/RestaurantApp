@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="RestaurantApp.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RestaurantApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:RestaurantApp.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="726" Width="954">
+
+    <Grid Margin="27,0,27,0" RequestedTheme="Default" Width="900" VerticalAlignment="Top" Height="804">
+        <ListView Margin="481,100,10,189" BorderBrush="Black" BorderThickness="1" Name="lstViewOrder" ItemsSource="{x:Bind ViewModel.BillItems, Mode=TwoWay}" VerticalAlignment="Stretch">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="1" Text="Price" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="BillTableDataTemplate" x:DataType="models:ItemDisplayModel">
+                    <Grid Height="48" AutomationProperties.Name="{x:Bind Name}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{x:Bind Name}" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{x:Bind PriceString}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView Margin="30,100,0,189" RequestedTheme="Default" HorizontalAlignment="Left" Width="405" BorderBrush="Black" BorderThickness="1" Name="lstViewMenu" ItemsSource="{x:Bind ViewModel.MenuItems, Mode=TwoWay}">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="1" Text="Price" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="ManeuTableDataTemplate" x:DataType="models:ItemDisplayModel">
+                    <Grid Height="48" AutomationProperties.Name="{x:Bind Name}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{x:Bind Name}" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{x:Bind PriceString}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="BtnAddItem" Content="Add Item" HorizontalAlignment="Left" Margin="151,631,0,118" VerticalAlignment="Stretch" FontSize="20" Width="156" Click="BtnAddItem_Click"/>
+        <Button x:Name="BtnCancelM" Content="Back" HorizontalAlignment="Stretch" Margin="609,631,137,118" VerticalAlignment="Stretch" FontSize="20" Click="BtnCancelM_Click"/>
+        <Button x:Name="BtnCheckout" Content="Checkout" HorizontalAlignment="Left" Margin="381,631,0,118" VerticalAlignment="Stretch" FontSize="20" Width="156" Click="BtnCheckout_Click"/>
+        <TextBlock Margin="203,68,0,709" Text="Menu" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Left" Width="62" RenderTransformOrigin="1.032,0.593" VerticalAlignment="Stretch"/>
+        <TextBlock Margin="668,68,165,683" Text="Order" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+    </Grid>
+</Page>
